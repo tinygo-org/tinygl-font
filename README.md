@@ -1,43 +1,68 @@
-# Tiny graphics library
+# Fonts
 
-**Note: work in progress.** This module isn't ready for use yet.
+This package contains a number of fonts and code for parsing/rendering them.
 
-Create fast graphics on slow SPI-connected displays.
+Currently supported:
 
-This library is inspired by [LVGL](https://lvgl.io/) and [Fyne](https://fyne.io/) and provides a way to create fast user interfaces on slow SPI connected displays.
+  * Rendering on a `pixel.Image[T]` buffer for fast drawing.
+  * Two bits per pixel, which provides very bare bones antialiasing. This balances code size and appearance: it looks a lot better than no antialiasing at all while not increasing size as much as 4 bits per pixel (which does look a lot better though).  
+    I'm betting on screens only getting higher resolution in the future so that antialiasing increasinly has less impact on appearance.
 
-## Supported displays
+To be implemented:
 
-Most dislays from the TinyGo drivers repository can be supported. The main requirement is that they have a way to send raw pixel data to the display (`DrawRGBBitmap8`).
+  * Better compression. I have a few ideas how fonts can be compressed while not increasing rendering time too much.
+  * Kerning. I also have a few ideas for this one, but I'll have to see how welll they work.
+  * Languages where there isn't a simple mapping between Unicode code point (rune) and glyph, like Arabic.
+  * Right-to-left (or other direction) languages.
+  * Colored emojis.
 
-## Contributing
+## Format
 
-You are free to contribute, but note that the design isn't complete yet so more features may need to be delayed a bit until I think the design is right.
+The font file format consists of a few parts:
 
-### Code style
+  * The header, with some very basic metadata.
+  * The rune tables, that describe for each rune (Unicode code point) where in the file the glyph can be found.
+  * A number of glyphs.
 
-To make things fast and to reduce memory consumption, there are a few code style considerations apart from the usual Go conventions:
+All values are little endian.
 
-  * All internal colors are stored as the target pixel data. This is usually RGB565 big-endian.
-  * Coordinates are of the `int` type in the public API and when doing integer math, but are stored as `int16`.  
-    Rationale: `int16` is usually big enough for all coordinates. However, the main compilation target is 32-bit microcontrollers which are most efficient when working with 32-bit integers. Casting on load/store is usually free: ARM has a sign-extending 16-bit load instruction and stores are simply a truncating 16-bit store. Using `int` in the public API is also more convenient for users of the API.
-  * No memory allocations should be needed while writing data to the display.
-  * The main package (tinygl) does not care about any particular UI style like Material. Such styles should be implemented separately.
+### Header
 
-### Release criteria
+The header consists of the following 4 bytes:
 
-This library isn't complete. There are some things I'd like to improve before calling this stable:
+| type  | name    | value
+| ----- | ------- | -----
+| uint8 | version | Font version, to be incremented with backwards incompatible changes. Currently 0.
+| uint8 | size    | Original font size (in pixels, or points at 72dpi).
+| uint8 | height  | Recommended line height of the original font. Usually slightly larger than the size.
+| uint8 | ascent  | Font ascent value, that is, how far down (from the top) the origin of each glyph is. When drawing text in an area of the font height, this value should be used as the Y value to start drawing.
 
-  - [x] ~The `Displayer` interface isn't great: `DrawRGBBitmap8` always takes a byte slice, which is unfortunate. It would be better if it could take a slice of the underlying pixel data instead.~
-  - [ ] Black-and-white screens aren't well supported: they have pixel data smaller than a single byte. These screens aren't natively supported in LVGL either, but it would be nice if we were able to.
-  - [ ] Displays with in-memory buffers could be better supported, by writing to the buffers directly. An example is the hub75 display driver.
-  - [ ] Theming needs to be improved. Ideally, the theme and the layout code are entirely separate and the theme just sets the sizes/colors to be used for standard widgets.
-  - [ ] DPI scaling isn't implemented yet. It should ideally be able to do all important calculations at compile time.
-  - Lots of features are missing, like:
-    - [ ] show/hide animations that look smooth (by only redrawing parts of the screen that changed)
-    - [x] ~using hardware scrolling present in most SPI displays~
-    - [ ] all the missing widgets and container types
+### Rune tables
 
-## License
+The rune tables maps runes to glyphs, as offsets in the file. Each table contains a start rune, the number of runes in the table, and an array of file offsets.
 
-BSD 2-clause license, see LICENSE.txt for details.
+Specifically, a table has the following format:
+
+| type      | name    | value
+| --------- | ------- | -----
+| uint16    | length  | The number of runes in this table.
+| uint24    | start   | The first rune in the table.
+| [N]uint16 | offsets | The glyph offsets from the start of the file, corresponding to a particular rune.
+
+To mark the last table, two 0 bytes are inserted after the last rune table which are decoded as a table of length 0.
+
+### Glyphs
+
+A glyph has some metadata followed by the bitmap for that glyph.
+
+The header looks like this:
+
+| type      | name    | value
+| --------- | ------- | -----
+| uint8     | advance | The "width" of the character, that is, how much to increase the X value to draw the next glyph. This does not take kerning into account.
+| int8      | top     | Top of the bitmap, relative to the origin (usually negative).
+| int8      | bottom  | Bottom of the bitmap, relative to the origin.
+| int8      | left    | Left bounding box of the bitmap, relative to the origin. This can be a negative integer for characters like 'j'.
+| int8      | right   | Right bounding box for the bitmap, relative to the origin (usually positive).
+
+The data consists of a sequence of bits, where each pair of two bits represents one pixel. It is padded to a full byte using zero bits.
