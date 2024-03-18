@@ -8,9 +8,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/aykevl/tinygl/font"
-	"github.com/aykevl/tinygl/font/roboto"
 	"tinygo.org/x/drivers/pixel"
+	font "tinygo.org/x/tinygl-font"
+	"tinygo.org/x/tinygl-font/roboto"
 )
 
 var flagUpdate = flag.Bool("update", false, "update tests")

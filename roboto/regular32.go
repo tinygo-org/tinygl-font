@@ -4,7 +4,7 @@
 package roboto
 
 import (
-	"github.com/aykevl/tinygl/font"
+	"tinygo.org/x/tinygl-font"
 )
 
 // Font statistics:
