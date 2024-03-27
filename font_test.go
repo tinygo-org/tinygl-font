@@ -10,6 +10,7 @@ import (
 
 	"tinygo.org/x/drivers/pixel"
 	font "tinygo.org/x/tinygl-font"
+	"tinygo.org/x/tinygl-font/freemono"
 	"tinygo.org/x/tinygl-font/roboto"
 )
 
@@ -17,16 +18,31 @@ var flagUpdate = flag.Bool("update", false, "update tests")
 
 func TestRoboto(t *testing.T) {
 	t.Run("Roboto Regular 16", func(t *testing.T) {
-		testFont(t, roboto.Regular16, "testdata/regular16.png")
+		testFont(t, roboto.Regular16, "testdata/roboto/regular16.png")
 	})
 	t.Run("Roboto Regular 24", func(t *testing.T) {
-		testFont(t, roboto.Regular24, "testdata/regular24.png")
+		testFont(t, roboto.Regular24, "testdata/roboto/regular24.png")
 	})
 	t.Run("Roboto Regular 36", func(t *testing.T) {
-		testFont(t, roboto.Regular36, "testdata/regular36.png")
+		testFont(t, roboto.Regular36, "testdata/roboto/regular36.png")
 	})
 	t.Run("Roboto Regular 48", func(t *testing.T) {
-		testFont(t, roboto.Regular48, "testdata/regular48.png")
+		testFont(t, roboto.Regular48, "testdata/roboto/regular48.png")
+	})
+}
+
+func TestFreemono(t *testing.T) {
+	t.Run("Freemono Regular 16", func(t *testing.T) {
+		testFont(t, freemono.Regular16, "testdata/freemono/regular16.png")
+	})
+	t.Run("Freemono Regular 24", func(t *testing.T) {
+		testFont(t, freemono.Regular24, "testdata/freemono/regular24.png")
+	})
+	t.Run("Freemono Regular 36", func(t *testing.T) {
+		testFont(t, freemono.Regular36, "testdata/freemono/regular36.png")
+	})
+	t.Run("Freemono Regular 48", func(t *testing.T) {
+		testFont(t, freemono.Regular48, "testdata/freemono/regular48.png")
 	})
 }
 
