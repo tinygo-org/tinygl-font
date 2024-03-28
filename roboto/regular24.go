@@ -1,5 +1,5 @@
 // File generated using:
-// 	go run ./generate -font=roboto/Roboto-Regular.ttf -size=24 -dpi=72 -package=roboto
+// 	go run ./generate -font=roboto/Roboto-Regular.ttf -size=24 -dpi=72 -package=roboto -weight=Regular
 
 package roboto
 

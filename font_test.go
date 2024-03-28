@@ -10,6 +10,7 @@ import (
 
 	"tinygo.org/x/drivers/pixel"
 	font "tinygo.org/x/tinygl-font"
+	"tinygo.org/x/tinygl-font/proggy"
 	"tinygo.org/x/tinygl-font/roboto"
 )
 
@@ -17,16 +18,61 @@ var flagUpdate = flag.Bool("update", false, "update tests")
 
 func TestRoboto(t *testing.T) {
 	t.Run("Roboto Regular 16", func(t *testing.T) {
-		testFont(t, roboto.Regular16, "testdata/regular16.png")
+		testFont(t, roboto.Regular16, "testdata/roboto/regular16.png")
 	})
 	t.Run("Roboto Regular 24", func(t *testing.T) {
-		testFont(t, roboto.Regular24, "testdata/regular24.png")
+		testFont(t, roboto.Regular24, "testdata/roboto/regular24.png")
 	})
 	t.Run("Roboto Regular 36", func(t *testing.T) {
-		testFont(t, roboto.Regular36, "testdata/regular36.png")
+		testFont(t, roboto.Regular36, "testdata/roboto/regular36.png")
 	})
 	t.Run("Roboto Regular 48", func(t *testing.T) {
-		testFont(t, roboto.Regular48, "testdata/regular48.png")
+		testFont(t, roboto.Regular48, "testdata/roboto/regular48.png")
+	})
+}
+
+func TestProggyClean(t *testing.T) {
+	t.Run("Proggy Clean 16", func(t *testing.T) {
+		testFont(t, proggy.Clean16, "testdata/proggy/clean16.png")
+	})
+	t.Run("Proggy Clean 24", func(t *testing.T) {
+		testFont(t, proggy.Clean24, "testdata/proggy/clean24.png")
+	})
+	t.Run("Proggy Clean 36", func(t *testing.T) {
+		testFont(t, proggy.Clean36, "testdata/proggy/clean36.png")
+	})
+	t.Run("Proggy Clean 48", func(t *testing.T) {
+		testFont(t, proggy.Clean48, "testdata/proggy/clean48.png")
+	})
+}
+
+func TestProggySmall(t *testing.T) {
+	t.Run("Proggy Small 16", func(t *testing.T) {
+		testFont(t, proggy.Small16, "testdata/proggy/small16.png")
+	})
+	t.Run("Proggy Small 24", func(t *testing.T) {
+		testFont(t, proggy.Small24, "testdata/proggy/small24.png")
+	})
+	t.Run("Proggy Small 36", func(t *testing.T) {
+		testFont(t, proggy.Small36, "testdata/proggy/small36.png")
+	})
+	t.Run("Proggy Small 48", func(t *testing.T) {
+		testFont(t, proggy.Small48, "testdata/proggy/small48.png")
+	})
+}
+
+func TestProggyTiny(t *testing.T) {
+	t.Run("Proggy Tiny 16", func(t *testing.T) {
+		testFont(t, proggy.Tiny16, "testdata/proggy/tiny16.png")
+	})
+	t.Run("Proggy Tiny 24", func(t *testing.T) {
+		testFont(t, proggy.Tiny24, "testdata/proggy/tiny24.png")
+	})
+	t.Run("Proggy Tiny 36", func(t *testing.T) {
+		testFont(t, proggy.Tiny36, "testdata/proggy/tiny36.png")
+	})
+	t.Run("Proggy Tiny 48", func(t *testing.T) {
+		testFont(t, proggy.Tiny48, "testdata/proggy/tiny48.png")
 	})
 }
 
