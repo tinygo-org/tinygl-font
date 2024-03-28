@@ -41,6 +41,7 @@ var (
 	flagDPI     = flag.Float64("dpi", 72, "render at given DPI")
 	flagOut     = flag.String("o", "", "output filename")
 	flagPackage = flag.String("package", "font", "package name for output Go file")
+	flagWeight  = flag.String("weight", "Regular", "Weight e.g. Regular, Tiny, etc.")
 	flagVerbose = flag.Bool("verbose", false, "print debugging information")
 )
 
@@ -86,7 +87,7 @@ func (d *FontData) writeFile(filename string) error {
 	w := &bytes.Buffer{}
 	template.Must(template.New("").Parse(
 		`// File generated using:
-// 	go run ./generate -font={{.font}} -size={{.flagSize}} -dpi={{.flagDPI}} -package={{.package}}
+// 	go run ./generate -font={{.font}} -size={{.flagSize}} -dpi={{.flagDPI}} -package={{.package}} -weight={{.weight}}
 
 package {{.package}}
 
@@ -99,7 +100,7 @@ import (
 // - glyph metadata:  {{.glyphMetadataSize}}
 // - glyph mask data: {{.glyphBitmapSize}}
 
-var Regular{{.size}} = font.Make("" +
+var {{.weight}}{{.size}} = font.Make("" +
 	"\x00" + // version: 0
 	"\x{{printf "%02x" .size  }}" + // size:   {{.size}}
 	"\x{{printf "%02x" .height}}" + // height: {{.height}}
@@ -109,6 +110,7 @@ var Regular{{.size}} = font.Make("" +
 		"flagSize":          *flagSize,
 		"flagDPI":           *flagDPI,
 		"package":           *flagPackage,
+		"weight":            *flagWeight,
 		"size":              d.size,
 		"height":            d.height,
 		"ascent":            d.ascent,
