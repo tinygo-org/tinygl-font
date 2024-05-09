@@ -48,6 +48,8 @@ roboto/regular48.go: generate/main.go
 	@go fmt roboto/regular48.go
 
 proggy: \
+    proggy/regular8.go \
+    proggy/regular12.go \
     proggy/regular16.go \
     proggy/regular20.go \
     proggy/regular24.go \
@@ -57,6 +59,14 @@ proggy: \
     proggy/regular40.go \
     proggy/regular44.go \
     proggy/regular48.go
+
+proggy/regular8.go: generate/main.go
+	go run ./generate -font proggy/ProggyVector-Regular.ttf -size 8 -o proggy/regular8.go -package=proggy $(FONT_FLAGS)
+	@go fmt proggy/regular8.go
+
+proggy/regular12.go: generate/main.go
+	go run ./generate -font proggy/ProggyVector-Regular.ttf -size 12 -o proggy/regular12.go -package=proggy $(FONT_FLAGS)
+	@go fmt proggy/regular12.go
 
 proggy/regular16.go: generate/main.go
 	go run ./generate -font proggy/ProggyVector-Regular.ttf -size 16 -o proggy/regular16.go -package=proggy $(FONT_FLAGS)
