@@ -10,6 +10,7 @@ import (
 
 	"tinygo.org/x/drivers/pixel"
 	font "tinygo.org/x/tinygl-font"
+	"tinygo.org/x/tinygl-font/gophers"
 	"tinygo.org/x/tinygl-font/proggy"
 	"tinygo.org/x/tinygl-font/roboto"
 	"tinygo.org/x/tinygl-font/tiny3x3a"
@@ -56,6 +57,24 @@ func TestTiny3x3a(t *testing.T) {
 	})
 	t.Run("Tiny3x3a Regular 12", func(t *testing.T) {
 		testFont(t, tiny3x3a.Regular12, "testdata/tiny3x3a/regular12.png")
+	})
+}
+
+func TestGophers(t *testing.T) {
+	t.Run("Gophers Regular 22", func(t *testing.T) {
+		testFont(t, gophers.Regular18, "testdata/gophers/regular22.png")
+	})
+	t.Run("Gophers Regular 32", func(t *testing.T) {
+		testFont(t, gophers.Regular32, "testdata/gophers/regular32.png")
+	})
+	t.Run("Gophers Regular 48", func(t *testing.T) {
+		testFont(t, gophers.Regular48, "testdata/gophers/regular48.png")
+	})
+	t.Run("Gophers Regular 58", func(t *testing.T) {
+		testFont(t, gophers.Regular58, "testdata/gophers/regular58.png")
+	})
+	t.Run("Gophers Regular 64", func(t *testing.T) {
+		testFont(t, gophers.Regular64, "testdata/gophers/regular64.png")
 	})
 }
 

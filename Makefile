@@ -1,4 +1,4 @@
-all: roboto proggy tiny3x3a
+all: roboto proggy tiny3x3a gophers
 
 roboto: \
     roboto/regular16.go \
@@ -120,3 +120,40 @@ tiny3x3a/regular10.go: generate/main.go
 tiny3x3a/regular12.go: generate/main.go
 	go run ./generate -font tiny3x3a/tiny3x3a.ttf -size 12 -o tiny3x3a/regular12.go -package=tiny3x3a $(FONT_FLAGS)
 	@go fmt tiny3x3a/regular12.go
+
+gophers: \
+    gophers/regular22.go \
+    gophers/regular32.go \
+    gophers/regular48.go \
+    gophers/regular58.go \
+    gophers/regular64.go \
+    gophers/regular80.go \
+    gophers/regular96.go
+
+gophers/regular22.go: generate/main.go
+	go run ./generate -font gophers/Gophers.ttf -size 22 -o gophers/regular22.go -package=gophers $(FONT_FLAGS)
+	@go fmt gophers/regular22.go
+
+gophers/regular32.go: generate/main.go
+	go run ./generate -font gophers/Gophers.ttf -size 32 -o gophers/regular32.go -package=gophers $(FONT_FLAGS)
+	@go fmt gophers/regular32.go
+
+gophers/regular48.go: generate/main.go
+	go run ./generate -font gophers/Gophers.ttf -size 48 -o gophers/regular48.go -package=gophers $(FONT_FLAGS)
+	@go fmt gophers/regular48.go
+
+gophers/regular58.go: generate/main.go
+	go run ./generate -font gophers/Gophers.ttf -size 58 -o gophers/regular58.go -package=gophers $(FONT_FLAGS)
+	@go fmt gophers/regular58.go
+
+gophers/regular64.go: generate/main.go
+	go run ./generate -font gophers/Gophers.ttf -size 64 -o gophers/regular64.go -package=gophers $(FONT_FLAGS)
+	@go fmt gophers/regular64.go
+
+gophers/regular80.go: generate/main.go
+	go run ./generate -font gophers/Gophers.ttf -size 80 -o gophers/regular80.go -package=gophers $(FONT_FLAGS)
+	@go fmt gophers/regular80.go
+
+gophers/regular96.go: generate/main.go
+	go run ./generate -font gophers/Gophers.ttf -size 96 -o gophers/regular96.go -package=gophers $(FONT_FLAGS)
+	@go fmt gophers/regular96.go
