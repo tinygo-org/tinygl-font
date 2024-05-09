@@ -12,6 +12,7 @@ import (
 	font "tinygo.org/x/tinygl-font"
 	"tinygo.org/x/tinygl-font/proggy"
 	"tinygo.org/x/tinygl-font/roboto"
+	"tinygo.org/x/tinygl-font/tiny3x3a"
 )
 
 var flagUpdate = flag.Bool("update", false, "update tests")
@@ -43,6 +44,18 @@ func TestProggy(t *testing.T) {
 	})
 	t.Run("Proggy Regular 48", func(t *testing.T) {
 		testFont(t, proggy.Regular48, "testdata/proggy/regular48.png")
+	})
+}
+
+func TestTiny3x3a(t *testing.T) {
+	t.Run("Tiny3x3a Regular 8", func(t *testing.T) {
+		testFont(t, tiny3x3a.Regular8, "testdata/tiny3x3a/regular8.png")
+	})
+	t.Run("Tiny3x3a Regular 10", func(t *testing.T) {
+		testFont(t, tiny3x3a.Regular10, "testdata/tiny3x3a/regular10.png")
+	})
+	t.Run("Tiny3x3a Regular 12", func(t *testing.T) {
+		testFont(t, tiny3x3a.Regular12, "testdata/tiny3x3a/regular12.png")
 	})
 }
 
