@@ -1,0 +1,378 @@
+// File generated using:
+// 	go run ./generate -font=tiny3x3a/tiny3x3a.ttf -size=8 -dpi=72 -package=tiny3x3a -weight=Regular
+
+package tiny3x3a
+
+import (
+	"tinygo.org/x/tinygl-font"
+)
+
+// Font statistics:
+// - total size:      1008
+// - glyph metadata:  475
+// - glyph mask data: 427
+
+var Regular8 = font.Make("" +
+	"\x00" + // version: 0
+	"\x08" + // size:   8
+	"\x08" + // height: 8
+	"\x06" + // ascent: 6
+
+	// Runes 32..126 (95 runes)
+	"\x5f\x00" + // number of runes (95)
+	"\x20\x00\x00" + // start rune (32)
+	"\xc9\x00" + // " " at index 201
+	"\xce\x00" + // "!" at index 206
+	"\xd5\x00" + // "\"" at index 213
+	"\xdd\x00" + // "#" at index 221
+	"\xe7\x00" + // "$" at index 231
+	"\xf2\x00" + // "%" at index 242
+	"\xfd\x00" + // "&" at index 253
+	"\x08\x01" + // "'" at index 264
+	"\x0e\x01" + // "(" at index 270
+	"\x18\x01" + // ")" at index 280
+	"\x22\x01" + // "*" at index 290
+	"\x29\x01" + // "+" at index 297
+	"\x34\x01" + // "," at index 308
+	"\x3b\x01" + // "-" at index 315
+	"\x42\x01" + // "." at index 322
+	"\x48\x01" + // "/" at index 328
+	"\x53\x01" + // "0" at index 339
+	"\x5e\x01" + // "1" at index 350
+	"\x67\x01" + // "2" at index 359
+	"\x72\x01" + // "3" at index 370
+	"\x7d\x01" + // "4" at index 381
+	"\xe7\x00" + // "5" at index 231
+	"\x88\x01" + // "6" at index 392
+	"\x92\x01" + // "7" at index 402
+	"\x9c\x01" + // "8" at index 412
+	"\xa7\x01" + // "9" at index 423
+	"\xb1\x01" + // ":" at index 433
+	"\xb9\x01" + // ";" at index 441
+	"\x0e\x01" + // "<" at index 270
+	"\xc2\x01" + // "=" at index 450
+	"\x18\x01" + // ">" at index 280
+	"\xcd\x01" + // "?" at index 461
+	"\xd7\x01" + // "@" at index 471
+	"\xe1\x01" + // "A" at index 481
+	"\xec\x01" + // "B" at index 492
+	"\xf6\x01" + // "C" at index 502
+	"\x01\x02" + // "D" at index 513
+	"\x0c\x02" + // "E" at index 524
+	"\x17\x02" + // "F" at index 535
+	"\x22\x02" + // "G" at index 546
+	"\x2d\x02" + // "H" at index 557
+	"\x38\x02" + // "I" at index 568
+	"\x3f\x02" + // "J" at index 575
+	"\x49\x02" + // "K" at index 585
+	"\x54\x02" + // "L" at index 596
+	"\x5e\x02" + // "M" at index 606
+	"\x68\x02" + // "N" at index 616
+	"\x72\x02" + // "O" at index 626
+	"\x7d\x02" + // "P" at index 637
+	"\x87\x02" + // "Q" at index 647
+	"\x92\x02" + // "R" at index 658
+	"\xe7\x00" + // "S" at index 231
+	"\x9d\x02" + // "T" at index 669
+	"\xa7\x02" + // "U" at index 679
+	"\xb1\x02" + // "V" at index 689
+	"\xdd\x00" + // "W" at index 221
+	"\xbb\x02" + // "X" at index 699
+	"\xc6\x02" + // "Y" at index 710
+	"\xd0\x02" + // "Z" at index 720
+	"\xdb\x02" + // "[" at index 731
+	"\xe5\x02" + // "\\" at index 741
+	"\xf0\x02" + // "]" at index 752
+	"\xfa\x02" + // "^" at index 762
+	"\x03\x03" + // "_" at index 771
+	"\x0a\x03" + // "`" at index 778
+	"\x12\x03" + // "a" at index 786
+	"\x1a\x03" + // "b" at index 794
+	"\x23\x03" + // "c" at index 803
+	"\x2a\x03" + // "d" at index 810
+	"\x33\x03" + // "e" at index 819
+	"\x3b\x03" + // "f" at index 827
+	"\x44\x03" + // "g" at index 836
+	"\x1a\x03" + // "h" at index 794
+	"\x4c\x03" + // "i" at index 844
+	"\xb9\x01" + // "j" at index 441
+	"\x53\x03" + // "k" at index 851
+	"\x5e\x03" + // "l" at index 862
+	"\x67\x03" + // "m" at index 871
+	"\x70\x03" + // "n" at index 880
+	"\x23\x03" + // "o" at index 803
+	"\x79\x03" + // "p" at index 889
+	"\x82\x03" + // "q" at index 898
+	"\x8b\x03" + // "r" at index 907
+	"\x93\x03" + // "s" at index 915
+	"\xfd\x00" + // "t" at index 253
+	"\x9b\x03" + // "u" at index 923
+	"\xa4\x03" + // "v" at index 932
+	"\xad\x03" + // "w" at index 941
+	"\x23\x03" + // "x" at index 803
+	"\xb6\x03" + // "y" at index 950
+	"\xc1\x03" + // "z" at index 961
+	"\xc9\x03" + // "{" at index 969
+	"\xd4\x03" + // "|" at index 980
+	"\xdc\x03" + // "}" at index 988
+	"\xe7\x03" + // "~" at index 999
+
+	// mark the end of the rune tables
+	"\x00\x00" +
+
+	// glyph 201 for runes ' ', '5', '<', '>', 'S', 'W', 'h', 'j', 'o', 't', 'x'
+	"\x03\x00\x00\x00\x00" +
+
+	// glyph 206 for rune '!'
+	"\x06\xfa\xfe\x02\x04\x7c\x05" +
+
+	// glyph 213 for rune '"'
+	"\x08\xfa\xfe\x00\x06\x3c\x7c\x05" +
+
+	// glyph 221 for rune '#'
+	"\x08\xfa\x00\x00\x06\x3c\x7c\xfc\x7f\x05" +
+
+	// glyph 231 for rune '$'
+	"\x08\xfa\x00\x00\x06\xc0\x7f\xc0\x43\xfc\x43" +
+
+	// glyph 242 for rune '%'
+	"\x08\xfa\x00\x00\x06\xfc\x43\xfc\x7f\xc0\x7f" +
+
+	// glyph 253 for rune '&'
+	"\x08\xfa\x00\x00\x06\xc0\x43\xfc\x43\xc0\x7f" +
+
+	// glyph 264 for rune '\''
+	"\x06\xfa\xfc\x02\x04\x7c" +
+
+	// glyph 270 for rune '('
+	"\x06\xfa\x00\x00\x04\xc0\xc7\x43\xc0\x07" +
+
+	// glyph 280 for rune ')'
+	"\x08\xfa\x00\x02\x06\x3c\x04\x7c\x3c\x04" +
+
+	// glyph 290 for rune '*'
+	"\x08\xfa\xfe\x02\x06\xfc\x57" +
+
+	// glyph 297 for rune '+'
+	"\x08\xfa\x00\x00\x06\xc0\x43\xfc\x7f\xc0\x43" +
+
+	// glyph 308 for rune ','
+	"\x04\xfe\x02\x00\x02\x7c\x05" +
+
+	// glyph 315 for rune '-'
+	"\x08\xfc\xfe\x00\x06\xfc\x7f" +
+
+	// glyph 322 for rune '.'
+	"\x04\xfe\x00\x00\x02\x7c" +
+
+	// glyph 328 for rune '/'
+	"\x08\xfa\x00\x00\x06\x00\x7c\xc0\x43\x3c\x40" +
+
+	// glyph 339 for rune '0'
+	"\x08\xfa\x00\x00\x06\xc0\x43\x3c\x7c\xc0\x43" +
+
+	// glyph 350 for rune '1'
+	"\x06\xfa\x00\x00\x04\x3c\x04\x7c\x05" +
+
+	// glyph 359 for rune '2'
+	"\x08\xfa\x00\x00\x06\xfc\x43\xc0\x43\xc0\x7f" +
+
+	// glyph 370 for rune '3'
+	"\x08\xfa\x00\x00\x06\xfc\x7f\xc0\x7f\xfc\x7f" +
+
+	// glyph 381 for rune '4'
+	"\x08\xfa\x00\x00\x06\x3c\x7c\xfc\x7f\x00\x7c" +
+
+	// glyph 392 for rune '6'
+	"\x08\xfa\x00\x00\x06\x3c\x40\xfc\x7f\x05" +
+
+	// glyph 402 for rune '7'
+	"\x08\xfa\x00\x00\x06\xfc\x7f\x00\x7c\x05" +
+
+	// glyph 412 for rune '8'
+	"\x08\xfa\x00\x00\x06\xc0\x7f\xfc\x7f\xfc\x43" +
+
+	// glyph 423 for rune '9'
+	"\x08\xfa\x00\x00\x06\xfc\x7f\x05\xc0\x07" +
+
+	// glyph 433 for rune ':'
+	"\x06\xfa\x00\x02\x04\x7c\x40\x7c" +
+
+	// glyph 441 for rune ';'
+	"\x06\xfc\x02\x00\x04\xc0\x57\x3c\x04" +
+
+	// glyph 450 for rune '='
+	"\x08\xfa\x00\x00\x06\xfc\x7f\x00\x40\xfc\x7f" +
+
+	// glyph 461 for rune '?'
+	"\x08\xfa\x00\x02\x06\xfc\x07\x7c\x3c\x04" +
+
+	// glyph 471 for rune '@'
+	"\x08\xfa\x00\x00\x06\xfc\x43\x05\xc0\x07" +
+
+	// glyph 481 for rune 'A'
+	"\x08\xfa\x00\x00\x06\xc0\x43\xfc\x7f\x3c\x7c" +
+
+	// glyph 492 for rune 'B'
+	"\x08\xfa\x00\x00\x06\xfc\x43\xfc\x7f\x05" +
+
+	// glyph 502 for rune 'C'
+	"\x08\xfa\x00\x00\x06\xc0\x7f\x3c\x40\xc0\x7f" +
+
+	// glyph 513 for rune 'D'
+	"\x08\xfa\x00\x00\x06\xfc\x43\x3c\x7c\xfc\x43" +
+
+	// glyph 524 for rune 'E'
+	"\x08\xfa\x00\x00\x06\xfc\x7f\xfc\x43\xfc\x7f" +
+
+	// glyph 535 for rune 'F'
+	"\x08\xfa\x00\x00\x06\xfc\x7f\xfc\x43\x3c\x40" +
+
+	// glyph 546 for rune 'G'
+	"\x08\xfa\x00\x00\x06\xfc\x43\x3c\x7c\xfc\x7f" +
+
+	// glyph 557 for rune 'H'
+	"\x08\xfa\x00\x00\x06\x3c\x7c\xfc\x7f\x3c\x7c" +
+
+	// glyph 568 for rune 'I'
+	"\x06\xfa\x00\x02\x04\x7c\x55" +
+
+	// glyph 575 for rune 'J'
+	"\x08\xfa\x00\x00\x06\x00\x7c\xc5\x3f\x04" +
+
+	// glyph 585 for rune 'K'
+	"\x08\xfa\x00\x00\x06\x3c\x7c\xfc\x43\x3c\x7c" +
+
+	// glyph 596 for rune 'L'
+	"\x08\xfa\x00\x00\x06\x3c\x40\xc5\xff\x07" +
+
+	// glyph 606 for rune 'M'
+	"\x08\xfa\x00\x00\x06\xfc\x7f\xc5\xc3\x07" +
+
+	// glyph 616 for rune 'N'
+	"\x08\xfa\x00\x00\x06\xfc\x7f\x3c\x7c\x05" +
+
+	// glyph 626 for rune 'O'
+	"\x08\xfa\x00\x00\x06\xfc\x7f\x3c\x7c\xfc\x7f" +
+
+	// glyph 637 for rune 'P'
+	"\x08\xfa\x00\x00\x06\xfc\x7f\xc5\x03\x04" +
+
+	// glyph 647 for rune 'Q'
+	"\x08\xfa\x00\x00\x06\xfc\x7f\x3c\x7c\xfc\x43" +
+
+	// glyph 658 for rune 'R'
+	"\x08\xfa\x00\x00\x06\xfc\x43\xfc\x7f\x3c\x7c" +
+
+	// glyph 669 for rune 'T'
+	"\x08\xfa\x00\x00\x06\xfc\x7f\xc0\x43\x05" +
+
+	// glyph 679 for rune 'U'
+	"\x08\xfa\x00\x00\x06\x3c\x7c\xc5\xff\x07" +
+
+	// glyph 689 for rune 'V'
+	"\x08\xfa\x00\x00\x06\x3c\x7c\x05\x3c\x04" +
+
+	// glyph 699 for rune 'X'
+	"\x08\xfa\x00\x00\x06\x3c\x7c\xc0\x43\x3c\x7c" +
+
+	// glyph 710 for rune 'Y'
+	"\x08\xfa\x00\x00\x06\x3c\x7c\xc0\x43\x05" +
+
+	// glyph 720 for rune 'Z'
+	"\x08\xfa\x00\x00\x06\xfc\x7f\xc0\x43\xfc\x7f" +
+
+	// glyph 731 for rune '['
+	"\x06\xfa\x00\x00\x04\xfc\xc7\x43\xfc\x07" +
+
+	// glyph 741 for rune '\\'
+	"\x08\xfa\x00\x00\x06\x3c\x40\xc0\x43\x00\x7c" +
+
+	// glyph 752 for rune ']'
+	"\x08\xfa\x00\x02\x06\xfc\x07\x7c\xfc\x07" +
+
+	// glyph 762 for rune '^'
+	"\x08\xfa\xfe\x00\x06\xc0\x43\x3c\x7c" +
+
+	// glyph 771 for rune '_'
+	"\x08\xfe\x00\x00\x06\xfc\x7f" +
+
+	// glyph 778 for rune '`'
+	"\x06\xfa\xfe\x00\x04\x3c\x04\x7c" +
+
+	// glyph 786 for rune 'a'
+	"\x06\xfc\x00\x00\x04\xc0\xc7\x7f" +
+
+	// glyph 794 for rune 'b'
+	"\x06\xfa\x00\x00\x04\x3c\xc4\x7f\x05" +
+
+	// glyph 803 for rune 'c'
+	"\x06\xfc\x00\x00\x04\xfc\x57" +
+
+	// glyph 810 for rune 'd'
+	"\x06\xfa\x00\x00\x04\xc0\xc7\x7f\x05" +
+
+	// glyph 819 for rune 'e'
+	"\x06\xfc\x00\x00\x04\x3c\xc4\x7f" +
+
+	// glyph 827 for rune 'f'
+	"\x06\xfa\x00\x00\x04\xc0\xc7\x43\x05" +
+
+	// glyph 836 for rune 'g'
+	"\x06\xfc\x02\x00\x04\xfc\x57\x05" +
+
+	// glyph 844 for rune 'i'
+	"\x04\xfc\x00\x00\x02\x7c\x05" +
+
+	// glyph 851 for rune 'k'
+	"\x08\xfa\x00\x00\x06\x3c\x40\xfc\x43\x3c\x7c" +
+
+	// glyph 862 for rune 'l'
+	"\x06\xfa\x00\x00\x04\x3c\x54\xc0\x07" +
+
+	// glyph 871 for rune 'm'
+	"\x08\xfc\x00\x00\x06\xfc\x43\xfc\x7f" +
+
+	// glyph 880 for rune 'n'
+	"\x08\xfc\x00\x00\x06\xfc\x43\x3c\x7c" +
+
+	// glyph 889 for rune 'p'
+	"\x06\xfc\x02\x00\x04\xfc\x57\x3c\x04" +
+
+	// glyph 898 for rune 'q'
+	"\x06\xfc\x02\x00\x04\xfc\x57\xc0\x07" +
+
+	// glyph 907 for rune 'r'
+	"\x06\xfc\x00\x00\x04\xfc\xc7\x43" +
+
+	// glyph 915 for rune 's'
+	"\x06\xfc\x00\x00\x04\xc0\xc7\x43" +
+
+	// glyph 923 for rune 'u'
+	"\x08\xfc\x00\x00\x06\x3c\x7c\xfc\x7f" +
+
+	// glyph 932 for rune 'v'
+	"\x08\xfc\x00\x00\x06\x3c\x7c\xc0\x43" +
+
+	// glyph 941 for rune 'w'
+	"\x08\xfc\x00\x00\x06\xfc\x7f\xc0\x7f" +
+
+	// glyph 950 for rune 'y'
+	"\x08\xfc\x02\x00\x06\x3c\x7c\xc0\x7f\x00\x7c" +
+
+	// glyph 961 for rune 'z'
+	"\x06\xfc\x00\x00\x04\x3c\x04\x7c" +
+
+	// glyph 969 for rune '{'
+	"\x08\xfa\x00\x00\x06\xc0\x7f\xfc\x43\xc0\x7f" +
+
+	// glyph 980 for rune '|'
+	"\x06\xfa\x02\x02\x04\x7c\x55\x05" +
+
+	// glyph 988 for rune '}'
+	"\x08\xfa\x00\x00\x06\xfc\x43\xc0\x7f\xfc\x43" +
+
+	// glyph 999 for rune '~'
+	"\x08\xfa\xfe\x00\x06\xc0\x7f\xfc\x43" +
+
+	"")

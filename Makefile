@@ -1,4 +1,4 @@
-all: roboto proggy
+all: roboto proggy tiny3x3a
 
 roboto: \
     roboto/regular16.go \
@@ -103,3 +103,20 @@ proggy/regular44.go: generate/main.go
 proggy/regular48.go: generate/main.go
 	go run ./generate -font proggy/ProggyVector-Regular.ttf -size 48 -o proggy/regular48.go -package=proggy $(FONT_FLAGS)
 	@go fmt proggy/regular48.go
+
+tiny3x3a: \
+    tiny3x3a/regular8.go \
+    tiny3x3a/regular10.go \
+    tiny3x3a/regular12.go
+
+tiny3x3a/regular8.go: generate/main.go
+	go run ./generate -font tiny3x3a/tiny3x3a.ttf -size 8 -o tiny3x3a/regular8.go -package=tiny3x3a $(FONT_FLAGS)
+	@go fmt tiny3x3a/regular8.go
+
+tiny3x3a/regular10.go: generate/main.go
+	go run ./generate -font tiny3x3a/tiny3x3a.ttf -size 10 -o tiny3x3a/regular10.go -package=tiny3x3a $(FONT_FLAGS)
+	@go fmt tiny3x3a/regular10.go
+
+tiny3x3a/regular12.go: generate/main.go
+	go run ./generate -font tiny3x3a/tiny3x3a.ttf -size 12 -o tiny3x3a/regular12.go -package=tiny3x3a $(FONT_FLAGS)
+	@go fmt tiny3x3a/regular12.go
